@@ -105,7 +105,7 @@ describe ORMProxy::ActiveRecord do
       context "when primary key is present" do
         it "destroys by primary key" do
           expect(Shop).to receive(:primary_key).and_return('id')
-          expect(Shop).to receive(:where).with('id' => 1).and_return(records)
+          expect(Shop).to receive(:where).with({"id" => 1}).and_return(records)
           expect(record).to receive(:destroy!)
 
           proxy.destroy

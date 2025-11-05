@@ -5,6 +5,8 @@ class ModelReceiver
   class App < Sinatra::Base
     use Rack::PostBodyContentTypeParser
 
+    set :host_authorization, { permitted_hosts: [] }
+
     set :dump_errors, false
     set :raise_errors, true
     
